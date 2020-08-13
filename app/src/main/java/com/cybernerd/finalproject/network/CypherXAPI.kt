@@ -60,4 +60,18 @@ interface CypherXAPI {
         @Field("name") name : String) : Call<List<AutoCompleteResponse>>
 
 
+    @FormUrlEncoded
+    @POST("user/profile")
+    fun editProfile(
+        @Header("Authorization") token : String,
+        @Field("id") id : Int,
+        @Field("first_name") first_name : String,
+        @Field("last_name") last_name : String,
+        @Field("email") email : String,
+        @Field("mobile") mobile : String,
+        @Field("bio") bio : String,
+        @Field("date") date : String
+
+    ) : Call<EditProfile>
+
 }

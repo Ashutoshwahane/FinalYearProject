@@ -12,6 +12,7 @@ import com.cybernerd.finalproject.utils.SessionManager
 import com.cybernerd.finalproject.utils.debug
 import com.cybernerd.finalproject.viewModel.LoginActivityViewModel
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,11 +22,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)  // ************** ye line pr
-
-
         sessionManager = SessionManager(this)
+
 
 
         // login to api
@@ -48,9 +47,9 @@ class LoginActivity : AppCompatActivity() {
 
         // save token
         viewModel.loginData.observe(this, Observer {
-            sessionManager.saveAuthToken(it.token)
             debug("token",sessionManager.fetchAuthToken().toString())
             if (it != null){
+                sessionManager.saveAuthToken(it.token)
                 startActivity(Intent(this,
                     MainActivity::class.java))
                 finish()

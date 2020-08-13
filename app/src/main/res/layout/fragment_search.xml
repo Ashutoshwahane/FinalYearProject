@@ -14,6 +14,7 @@
         android:textColorHint="@color/white"
         style="@style/TextAppearance.AppCompat.Title"
         android:id="@+id/tv_search"
+        android:clickable="true"
         android:textColor="@color/white"
         android:drawableEnd="@drawable/ic_search_pink"
         app:layout_constraintTop_toTopOf="parent"

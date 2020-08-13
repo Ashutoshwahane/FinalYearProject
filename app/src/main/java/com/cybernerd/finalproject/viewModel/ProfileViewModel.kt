@@ -1,6 +1,7 @@
 package com.cybernerd.finalproject.viewModel
 
 import android.app.Application
+import android.content.Intent
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.cybernerd.finalproject.model.Profile
@@ -22,4 +23,5 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
     fun getProfile(){
         repository.getProfile()
     }
+
 }

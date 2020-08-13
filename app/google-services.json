@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "409857417953",
+    "firebase_url": "https://ios-development-b7d88.firebaseio.com",
+    "project_id": "ios-development-b7d88",
+    "storage_bucket": "ios-development-b7d88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409857417953:android:6fe901053098ffd5750da0",
+        "android_client_info": {
+          "package_name": "com.cybernerd.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409857417953-bvf0m31qrj7ia9o7t8mshcdn6d852n7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPvGUhcCzxB3NyMIRCZWob95RRmIGeJ-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409857417953-bvf0m31qrj7ia9o7t8mshcdn6d852n7u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "409857417953-ne2l55cu4s7te5mb3jhgmsi5vh0f0ftj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "cybernerd404.tect.FirebaseAuthentication"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

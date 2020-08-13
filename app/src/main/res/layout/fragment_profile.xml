@@ -5,89 +5,180 @@
     android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/profileImage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="20dp"
-        android:src="@drawable/applogo"
-        />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/profileName"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toEndOf="@id/profileImage"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:text="Ashutosh Wahane"
-        android:textSize="20sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textColor="@color/white"
-        />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/profileBio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/profileName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="this is my bio????!!!!!!"
-        android:layout_marginTop="30dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        android:textColor="@color/white"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/profileRole"
-        app:layout_constraintTop_toBottomOf="@id/profileBio"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="ROLE"
-        android:textSize="24sp"
-        android:layout_margin="20dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/profileUsername"
-        app:layout_constraintTop_toBottomOf="@id/profileRole"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="UserName"
-        android:textSize="24sp"
-        android:layout_margin="20dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        />
+    <ScrollView
+        android:id="@+id/profileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Profile "/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="true" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/profileEmail"
-        app:layout_constraintTop_toBottomOf="@id/profileUsername"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Email@yopmail.com"
-        android:textSize="24sp"
-        android:layout_margin="20dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/profileMobile"
-        app:layout_constraintTop_toBottomOf="@id/profileEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="1234567890"
-        android:textSize="24sp"
-        android:layout_margin="20dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        />
+                <ImageView
+                    android:id="@+id/imageProfile"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:src="@drawable/appicon">
+
+                    <requestFocus />
+                </ImageView>
+
+                <Button
+                    android:id="@+id/btnProfileLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="logout "
+                    android:background="@drawable/button_shape"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+
+
+                <Button
+                    android:id="@+id/profileSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="onSaveClicked"
+                    android:text="Save"
+                    android:background="@drawable/button_shape"
+                    android:layout_margin="30dp"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+                android:text="Name"/>
+            <EditText
+                android:id="@+id/profileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:hint="Name"
+                android:layout_margin="5dp"
+                android:inputType="textCapWords"
+                android:maxLines="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+
+                android:text="Email"/>
+            <EditText
+                android:id="@+id/profileEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+
+                android:text="Phone"/>
+            <EditText
+                android:id="@+id/profilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
+                android:hint="Phone"
+                android:layout_margin="5dp"
+                android:inputType="phone"
+                android:maxLines="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
+                android:layout_margin="5dp"
+                android:text="Department"/>
+            <EditText
+                android:id="@+id/profileDepartment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
+                android:hint="Department"
+                android:layout_margin="5dp"
+                android:inputType="number"
+                android:maxLines="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
+                android:layout_margin="5dp"
+                android:text="Role"/>
+            <EditText
+                android:id="@+id/profileRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Role"
+                android:layout_margin="5dp"
+                android:inputType="number"
+                android:textColor="@color/white"
+
+                android:maxLines="1"/>
+
+            <EditText
+            android:id="@+id/profileDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date"
+            android:layout_margin="5dp"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:maxLines="1"/>
+            <EditText
+                android:id="@+id/profileBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Bio"
+                android:layout_margin="5dp"
+                android:inputType="number"
+                android:textColor="@color/white"
+                android:maxLines="1"/>
+            <EditText
+                android:id="@+id/profileId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ID"
+                android:layout_margin="5dp"
+                android:inputType="number"
+                android:textColor="@color/white"
+                android:maxLines="1"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 
