@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cybernerd.finalproject.R
 import com.cybernerd.finalproject.model.Detail
 import com.cybernerd.finalproject.utils.debug
-import com.cybernerd.finalproject.view.activity.ClassroomDetailActivity
+import com.cybernerd.finalproject.view.activity.ChatRoomActivity
 import kotlinx.android.synthetic.main.rv_classroom_child.view.*
 
 class ClassroomAdapter(private val context: Context) :
@@ -47,7 +47,7 @@ class ClassroomAdapter(private val context: Context) :
         holder.name.text = list[position].name
         holder.description.text = list[position].description
         holder.rootView.setOnClickListener {
-            val intent = Intent(context, ClassroomDetailActivity::class.java)
+            val intent = Intent(context, ChatRoomActivity::class.java)
             intent.putExtra("name",list[position].name)
             intent.putExtra("description",list[position].description)
             context.startActivity(intent)

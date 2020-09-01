@@ -20,7 +20,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:src="@drawable/ic_person_pink_fill"
                 />
 
@@ -31,7 +31,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:text="User Name"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:textColor="@color/white"
                 />
 
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_seach_role"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:fontFamily="sans-serif-condensed"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:text="Role"
@@ -55,7 +55,6 @@
             android:text="Department"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textColor="@color/white"
-            android:layout_margin="5dp"
             />
 
 

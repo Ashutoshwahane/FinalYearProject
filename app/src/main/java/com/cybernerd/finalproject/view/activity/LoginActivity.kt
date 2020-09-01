@@ -1,6 +1,7 @@
 package com.cybernerd.finalproject.view.activity
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.GONE
@@ -25,14 +26,17 @@ class LoginActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)  // ************** ye line pr
         sessionManager = SessionManager(this)
 
+        et_forgetpassword.setOnClickListener {
+
+        }
+
+
 
 
         // login to api
         login_button.setOnClickListener {
             if (et_email.text!!.isNotEmpty()){
-
                 viewModel.login(et_email.text.toString(), et_password.text.toString())
-
             }
         }
 
@@ -47,18 +51,18 @@ class LoginActivity : AppCompatActivity() {
 
         // save token
         viewModel.loginData.observe(this, Observer {
-            debug("token",sessionManager.fetchAuthToken().toString())
+//            debug("token",sessionManager.fetchAuthToken().toString())
             if (it != null){
                 sessionManager.saveAuthToken(it.token)
+                sessionManager.saveUserName(it.user.first_name)
+                sessionManager.saveRole(it.user.role.role)
                 startActivity(Intent(this,
                     MainActivity::class.java))
                 finish()
             }
         })
 
-
-
-
-
     }
+
+
 }

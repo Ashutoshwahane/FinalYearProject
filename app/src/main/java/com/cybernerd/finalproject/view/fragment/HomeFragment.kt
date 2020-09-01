@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cybernerd.finalproject.R
 import com.cybernerd.finalproject.adapter.ClassroomAdapter
+import com.cybernerd.finalproject.utils.SessionManager
 import com.cybernerd.finalproject.viewModel.ClassroomViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -20,6 +21,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var classroomAdapter: ClassroomAdapter
     private lateinit var viewmodel : ClassroomViewModel
+//    private lateinit var sessionManager: SessionManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,22 +31,31 @@ class HomeFragment : Fragment() {
 
         viewmodel = ViewModelProvider(this).get(ClassroomViewModel::class.java)
         classroomAdapter = ClassroomAdapter(context!!)
+//        sessionManager = SessionManager(context!!)
 
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        viewmodel.getAllClassroom()
-        viewmodel.classroomsLiveData.observe(viewLifecycleOwner, Observer {
-            classroomAdapter.setClassroom(it.details)
-        })
-        rv_classroom.adapter = classroomAdapter
+            viewmodel.getAllClassroom()
+            viewmodel.classroomsLiveData.observe(viewLifecycleOwner, Observer {
+                classroomAdapter.setClassroom(it.details)
+            })
+            rv_classroom.adapter = classroomAdapter
+
+
+//        }else{
+//            viewmodel.getStudentClassroom()
+//            viewmodel.studentClassroomsLiveData.observe(viewLifecycleOwner, Observer {
+//                classroomAdapter.setClassroom(ArrayList(it.details))
+//            })
+//            rv_classroom.adapter = classroomAdapter
+//        }
+
+
 
         super.onViewCreated(view, savedInstanceState)
     }
-
-
-
 
 }

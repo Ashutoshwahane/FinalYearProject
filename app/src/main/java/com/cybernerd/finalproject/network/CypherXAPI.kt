@@ -74,4 +74,10 @@ interface CypherXAPI {
 
     ) : Call<EditProfile>
 
+
+    @GET("classroom/my-classrooms/")
+    fun getStudentClassroom(
+        @Header("Authorization") token : String
+    ) : Call<ClassroomResponse>
+
 }

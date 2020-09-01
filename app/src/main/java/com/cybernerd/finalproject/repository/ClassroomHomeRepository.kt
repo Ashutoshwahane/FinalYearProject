@@ -15,12 +15,13 @@ import retrofit2.Response
 
 class ClassroomHomeRepository(val token: String){
     val classroomLiveData = MutableLiveData<ClassroomResponse>()
+    val studentClassroomLiveData = MutableLiveData<ClassroomResponse>()
 
     fun getAllClassroom(){
 
         CypherXAPI().getClassroom(token).enqueue(object : Callback<ClassroomResponse>{
             override fun onFailure(call: Call<ClassroomResponse>, t: Throwable) {
-                debug("token","${t.message}")
+                debug("classroom","${t.message}")
             }
 
             override fun onResponse(
@@ -28,7 +29,24 @@ class ClassroomHomeRepository(val token: String){
                 response: Response<ClassroomResponse>
             ) {
                 classroomLiveData.value = response.body()
-//                debug("classroom","${response.body()}")
+//                debug("classroom","${response.body()!!.details}")
+            }
+
+        })
+    }
+
+    fun getStudentClassroom(){
+        CypherXAPI().getStudentClassroom(token).enqueue(object : Callback<ClassroomResponse>{
+            override fun onFailure(call: Call<ClassroomResponse>, t: Throwable) {
+                debug("classroom","${t.message}")
+            }
+
+            override fun onResponse(
+                call: Call<ClassroomResponse>,
+                response: Response<ClassroomResponse>
+            ) {
+                classroomLiveData.value = response.body()
+//                debug("classroom","${response.body()!!.details}")
             }
 
         })

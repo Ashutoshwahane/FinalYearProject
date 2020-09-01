@@ -13,6 +13,7 @@ class ClassroomViewModel(application: Application): AndroidViewModel(application
 
     lateinit var repository : ClassroomHomeRepository
     val classroomsLiveData : LiveData<ClassroomResponse>
+    val studentClassroomsLiveData : LiveData<ClassroomResponse>
 
     init {
 
@@ -21,11 +22,15 @@ class ClassroomViewModel(application: Application): AndroidViewModel(application
         }!!
 
         this.classroomsLiveData = repository.classroomLiveData
+        this.studentClassroomsLiveData = repository.studentClassroomLiveData
 
     }
 
     fun getAllClassroom(){
         repository.getAllClassroom()
+    }
+    fun getStudentClassroom(){
+        repository.getStudentClassroom()
     }
 }
 

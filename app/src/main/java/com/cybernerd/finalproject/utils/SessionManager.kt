@@ -9,6 +9,8 @@ class SessionManager (context: Context) {
 
     companion object {
         const val USER_TOKEN = "user_token"
+        const val USER_NAME = "user_name"
+        const val ROLE = "role"
     }
 
 
@@ -21,5 +23,25 @@ class SessionManager (context: Context) {
 
     fun fetchAuthToken(): String? {
         return prefs.getString(USER_TOKEN, null)
+    }
+
+    fun saveUserName(username : String){
+        val name = prefs.edit()
+        name.putString(USER_NAME, username)
+        name.apply()
+    }
+
+    fun getUserName(): String?{
+        return prefs.getString(USER_NAME, null)
+    }
+
+    fun saveRole(role : String){
+        val name = prefs.edit()
+        name.putString(ROLE, role)
+        name.apply()
+    }
+
+    fun getRole(): String?{
+        return prefs.getString(ROLE, null)
     }
 }
